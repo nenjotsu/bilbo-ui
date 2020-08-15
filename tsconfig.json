@@ -1,16 +1,38 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
-    "strictNullChecks": true,
-    "target": "es5",
-    "outDir": "dist",
-    "module": "commonjs",
+    "importHelpers": true,
+    "lib": [
+      "dom",
+      "es7"
+    ],
+    "paths": {
+      "@/": [
+        "src/"
+      ],
+      "@shared/*": [
+        "src/_shared/*"
+      ],
+      "@test-utils": [
+        "src/_shared/test/utils"
+      ],
+    },
     "moduleResolution": "node",
-    "sourceMap": true,
-    "lib": ["es2015", "dom"],
-    "rootDir": "src"
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es5"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

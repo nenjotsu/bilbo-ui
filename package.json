@@ -1,37 +1,121 @@
 {
-  "name": "bilbo-ui",
-  "version": "1.0.1",
-  "description": "Bilbo is a UI Components using Mithril JS",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
+  "name": "jiro-ui",
+  "version": "0.0.2",
+  "description": "A Mithril.js UI library based from construct-ui",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
+  "sideEffects": [
+    "*.css"
   ],
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build",
-    "release": "npm publish",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nenjotsu/bilbo-ui.git"
+    "lint": "tslint src/**/*.ts docs/**/*.ts",
+    "lint:fix": "tslint --fix src/**/*.ts docs/**/*.ts",
+    "test": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha",
+    "test:watch": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha --watch",
+    "watch": "npm-run-all --parallel watch:js watch:css",
+    "watch:js": "tsc -p tsconfig.esm.json --watch",
+    "watch:css": "node-sass -w src/ -o lib/",
+    "build:umd": "webpack --mode=production",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "clean:css": "cleancss --level 2 lib/index.css -o lib/index.css",
+    "build:css": "node-sass src/ -o lib/ && npm run clean:css",
+    "build": "npm run lint && npm run test && rimraf lib && npm-run-all --parallel build:cjs build:esm build:umd build:css",
+    "clean:docs": "cd docs && rimraf public",
+    "build:docs": "npm run generate:docs && npm run clean:docs && cd docs && cross-env NODE_ENV=production webpack",
+    "watch:docs": "cd docs && webpack-dev-server --hot",
+    "generate:docs": "documentalist src/**/* > docs/generated/docs.json",
+    "generate:icons": "node scripts/generateIcons.js",
+    "build:all": "npm run build && npm run build:docs",
+    "deploy:docs": "gh-pages -d docs/public",
+    "version": "npm run build:all && git add *",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "peerDependencies": {
-    "mithril": ">=2.0.4"
+    "mithril": ">=1.1.6"
   },
-  "keywords": [],
-  "author": "nenjotsu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nenjotsu/bilbo-ui/issues"
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "enquire.js": "^2.1.6",
+    "feather-icons": "^4.28.0",
+    "lodash.debounce": "^4.0.8",
+    "mithril-transition-group": "^0.1.7",
+    "popper.js": "^1.16.1",
+    "tslib": "^2.0.0"
   },
-  "homepage": "https://github.com/nenjotsu/bilbo-ui#readme",
   "devDependencies": {
-    "@types/mithril": "^2.0.3",
-    "mithril": "^2.0.4"
+    "@documentalist/client": "^2.5.0",
+    "@documentalist/compiler": "^2.8.1",
+    "@types/classnames": "^2.2.10",
+    "@types/element-resize-event": "^2.0.0",
+    "@types/highlight.js": "^9.12.4",
+    "@types/jsdom": "^16.2.3",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/mithril": "^1.1.16",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.5",
+    "@types/tinycolor2": "^1.4.2",
+    "@types/webpack-env": "^1.15.2",
+    "assert": "^2.0.0",
+    "autoprefixer": "^9.8.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "clean-css": "^4.2.3",
+    "clean-css-cli": "^4.3.0",
+    "copy-webpack-plugin": "^6.0.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "gh-pages": "^2.2.0",
+    "highlight.js": "^9.18.1",
+    "html-webpack-plugin": "^4.3.0",
+    "jsdom": "^16.2.2",
+    "jsdom-global": "^3.0.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "mithril": "^1.1.7",
+    "mocha": "^7.2.0",
+    "mq-polyfill": "^1.1.8",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^3.1.1",
+    "sass-loader": "^8.0.2",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.2.1",
+    "tinycolor2": "^1.4.1",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@nenjotsu"
-  }
+  "author": "Vasil Rimar & nenjotsu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nenjotsu/jiro-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nenjotsu/jiro-ui/issues"
+  },
+  "homepage": "https://nenjotsu.github.io/jiro-ui",
+  "keywords": [
+    "jiro-ui",
+    "ui-components",
+    "ui",
+    "mithril",
+    "mithril-component",
+    "mithriljs",
+    "typescript"
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
 }

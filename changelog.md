@@ -1,0 +1,104 @@
+# 0.2.0
++ Update to typescript 3.5.1
++ [NEW]
+  + [Tabs] component
+  + [InputPopover] component
+
+# 0.1.11
++ [Button] fix `loading` style when `intent` set
++ [Input]: fix `basic` styling
++ [Popover]: fix `hasBackdrop=true` bug
++ [ControlGroup]: fix styling for `CustomSelect`
++ [CustomSelect]: add `size` attr
++ [List]: set `font-weight:normal` as default
++ [Table]: remove last row border
++ [Input]: prevent lifecycle methods from being passed through to `input` el
+
+# 0.1.10
++ [Popover] fix `onOpened` passing null container element
++ [Toast] pass through html attrs
++ [Button] fix sublabel color when `outlined` and `intent` is set
++ [FormGroup] wrap in a `Col` component
++ [Input] add `basic` attr
++ [Textarea] add `basic` attr
++ [Dialog] add `basic` attr, increase heading font-size
++ [Card] add `fluid` attr ([#2](https://github.com/vrimar/construct-ui/issues/2))
+
+# 0.1.9
++ Set "Arial" as default font
+
+# 0.1.8
++ Update Feather icons
++ Add TransitionManager
++ Normalize CSS hover styles
++ [FormGroup] set nested CustomSelect to fluid
++ [Callout] add `onDismiss` icon
++ [EmptyState] allow arbitrary icons, center `content` text
++ [CustomSelect]
+  + change to `inline-block` style
+  + handle keyboard navigation for disabled options
++ [BaseControl] add optional `containerAttrs` attr
++ [Button] add `outlined` attr
++ [ButtonGroup] add `outlined` attr
++ [QueryList] 
+  + prevent `onSelect` when item has disabled=true attrs
+  + update empty list message styles
+  + remove bottom border from list items
++ [Toast] 
+  + fix dismiss icon hover color
+  + pass through style attr to Overlay
++ [Overlay] set `restoreFocus=false` by default, set `shouldRender=false` in `onremove`
++ [Tree] pass through html attrs
++ [SelectList] pass through popover class
++ [List] add `interactive` attr
++ [Tag] 
+    + lighten default bg color and add border
+    + allow children to be passed to `label` attr
++ [Icon] fix intent class specificity
++ [TagInput] prevent tab focus when disabled
+
+
+# 0.1.7
++ [Popover] pass class/style to container, add overlayStyle and overlayClass attrs
++ [PopoverMenu] update attrs passed to Popover
++ [MenuItem] update submenu attrs
++ [Button] fix line-height for label/sublabel
++ [Select] add default case for `options` attr
++ [Overlay] call `onClose/onClosed` in onremove only if currently open
++ [CustomSelect] prevent selection in controlled mode (when `value` attrs is passed), prevent initial selection when `value/defaultValue` is not specified
++ Allow `number` type for CustomSelect, Radio, Select `options/value/defaultValue`
+
+# 0.1.6
++ [Styles] Fix line height styles
++ [Button] Set `iconLeftAttrs` and `iconRightAttrs` as partials
++ [Popover] Set `restoreFocus` to `false` as default
++ [QueryList] Check if `activeIndex` is positive before scrolling to active item
+
+# 0.1.5
++ [Docs] Update getting started
++ [Button] Add `iconLeftAttrs` and `iconRightAttrs` attrs
++ [CustomSelect] Fix controlled `value`
+
+# 0.1.4
++ [Overlay] Pass container DOM node to `onOpened`
++ [Popover]
+  + Pass container DOM node to `onOpened`
+  + Set `restoreFocus` only on click interaction
+  + Fix flash of content in IE11 and Safari 9.1
++ [QueryList] Check if `activeIndex` is positive before scrolling to active item
++ [SelectList] 
+  + Refactor methods
+  + Update example
+
+# 0.1.3
++ [Overlay] Remove body padding when no vertical scrollbar
++ [Examples] [Colors] Fix responsive color grid for mobile
+
+# 0.1.2
++ [Docs] Fix mobile nav drawer
++ [Examples] Fix wording/grammar
+
+# 0.1.1
++ Fix UMD build
++ Convert all file endings to LF
++ [Examples] [Tree] Fix source link
