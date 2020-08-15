@@ -1,5 +1,5 @@
 {
-  "name": "jiro-ui",
+  "name": "bilbo-ui",
   "version": "0.0.2",
   "description": "A Mithril.js UI library based from construct-ui",
   "main": "lib/cjs/index.js",
@@ -23,9 +23,7 @@
     "build:css": "node-sass src/ -o lib/ && npm run clean:css",
     "build": "npm run lint && npm run test && rimraf lib && npm-run-all --parallel build:cjs build:esm build:umd build:css",
     "generate:icons": "node scripts/generateIcons.js",
-    "build:all": "npm run build",
-    "version": "npm run build:all && git add *",
-    "postversion": "git push && git push --tags && npm publish"
+    "release": "npm run build && npm publish"
   },
   "peerDependencies": {
     "mithril": ">=1.1.6"
@@ -93,14 +91,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nenjotsu/jiro-ui.git"
+    "url": "https://github.com/nenjotsu/bilbo-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/nenjotsu/jiro-ui/issues"
+    "url": "https://github.com/nenjotsu/bilbo-ui/issues"
   },
-  "homepage": "https://nenjotsu.github.io/jiro-ui",
+  "homepage": "https://nenjotsu.github.io/bilbo-ui",
   "keywords": [
-    "jiro-ui",
+    "bilbo-ui",
     "ui-components",
     "ui",
     "mithril",

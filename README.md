@@ -1,22 +1,22 @@
 <p align="center">
-  <a href="https://nenjotsu.github.io/jiro-ui" rel="noopener" target="_blank"><img width="60" src="https://raw.githubusercontent.com/nenjotsu/jiro-ui/master/docs/src/logo.svg?sanitize=true" alt="jiro-UI logo"></a></p>
+  <a href="https://nenjotsu.github.io/bilbo-ui" rel="noopener" target="_blank"><img width="60" src="https://raw.githubusercontent.com/nenjotsu/bilbo-ui/master/docs/src/logo.svg?sanitize=true" alt="bilbo-UI logo"></a></p>
 </p>
 
-<h1 align="center">Jiro-UI</h1>
+<h1 align="center">bilbo-UI</h1>
 
 <div align="center">
 
 ### A [Mithril.js](https://github.com/MithrilJS/mithril.js) UI library.
 
-[![npm package](https://img.shields.io/npm/v/jiro-ui/latest.svg)](https://www.npmjs.com/package/jiro-ui)
-[![Travis (.org)](https://img.shields.io/travis/nenjotsu/jiro-ui.svg)](https://travis-ci.org/nenjotsu/jiro-ui)
-[![Gitter](https://img.shields.io/gitter/room/nenjotsu/jiro-ui.svg)](https://gitter.im/jiro-ui/Lobby)
+[![npm package](https://img.shields.io/npm/v/bilbo-ui/latest.svg)](https://www.npmjs.com/package/bilbo-ui)
+[![Travis (.org)](https://img.shields.io/travis/nenjotsu/bilbo-ui.svg)](https://travis-ci.org/nenjotsu/bilbo-ui)
+[![Gitter](https://img.shields.io/gitter/room/nenjotsu/bilbo-ui.svg)](https://gitter.im/bilbo-ui/Lobby)
 
 </div>
 
 ## Documentation
 
-Check out the [documentation website](https://nenjotsu.github.io/jiro-ui/) for installation instructions and getting started.
+Check out the [documentation website](https://nenjotsu.github.io/bilbo-ui/) for installation instructions and getting started.
 
 ## Playground
 
